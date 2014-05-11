@@ -1,0 +1,7 @@
+app/code/community/Mmartinovic/Coeditor/ app/code/community/Mmartinovic/Coeditor/
+app/etc/modules/Mmartinovic_Coeditor.xml app/etc/modules/Mmartinovic_Coeditor.xml
+app/design/adminhtml/default/default/layout/mmartinovic_coeditor.xml app/design/adminhtml/default/default/layout/mmartinovic_coeditor.xml
+app/design/adminhtml/default/default/template/mmartinovic_coeditor/ app/design/adminhtml/default/default/template/mmartinovic_coeditor/
+js/mmartinovic/adminhtml/sales/order/view/coeditor.js js/mmartinovic/adminhtml/sales/order/view/coeditor.js
+skin/adminhtml/default/default/mmartinovic/coeditor/ skin/adminhtml/default/default/mmartinovic/coeditor/
+ 

@@ -1,0 +1,10 @@
+<?php /* @var $this Mmartinovic_Coeditor_Block_Adminhtml_Sales_Order_View_Coeditor_Qty */ ?>
+<div id="coeditor_fields_qty" class="<?php echo $this->getIsLastFieldset() ? 'last-fieldset' : '' ?>">
+    <div class="product-options">
+        <dl>
+            <dt><label><?php echo Mage::helper('catalog')->__('Quantity') ?></label> <input disabled="disabled" id="coeditor_input_qty" class="input-text" type="text" name="qty" value="<?php echo $this->getQtyValue() * 1 ?>">
+            <p class="note"><span>Field disabled for editing</span></p>
+            </dt>
+        </dl>
+    </div>
+</div>

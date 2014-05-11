@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+    <!-- Handle for serving popup -->
+    <adminhtml_coeditor_ajax_index>
+        <update handle="popup"/>
+
+        <remove name="footer"/>
+
+        <reference name="head">
+            <action method="addJs">
+                <script>mmartinovic/adminhtml/sales/order/view/coeditor.js</script>
+            </action>
+
+            <!-- Tweak popup's appearance a little -->
+            <action method="addCss">
+                <name>mmartinovic/coeditor/sales/order/view/coeditor.css</name>
+            </action>
+        </reference>
+
+        <reference name="content">
+            <!-- Block for rendering form with custom options -->
+            <block type="mmartinovic_coeditor/adminhtml_sales_order_view_form" name="sales.order.view.coeditor.form" template="mmartinovic_coeditor/sales/order/view/form.phtml">
+                <block type="mmartinovic_coeditor/adminhtml_sales_order_view_coeditor_options" name="sales.order.view.coeditor.options" template="mmartinovic_coeditor/sales/order/view/coeditor/options.phtml">
+                    <action method="addOptionRenderer"><type>text</type><block>catalog/product_view_options_type_text</block><template>mmartinovic_coeditor/sales/order/view/coeditor/options/type/text.phtml</template></action>
+                    <action method="addOptionRenderer"><type>file</type><block>catalog/product_view_options_type_file</block><template>mmartinovic_coeditor/sales/order/view/coeditor/options/type/file.phtml</template></action>
+                    <action method="addOptionRenderer"><type>select</type><block>catalog/product_view_options_type_select</block><template>mmartinovic_coeditor/sales/order/view/coeditor/options/type/select.phtml</template></action>
+                    <action method="addOptionRenderer"><type>date</type><block>catalog/product_view_options_type_date</block><template>mmartinovic_coeditor/sales/order/view/coeditor/options/type/date.phtml</template></action>
+                    <block type="core/template" name="sales.order.view.coeditor.options.js" as="options_js" template="mmartinovic_coeditor/sales/order/view/coeditor/options/js.phtml"/>
+                </block>
+                <block type="mmartinovic_coeditor/adminhtml_sales_order_view_coeditor_qty" name="sales.order.view.coeditor.qty" template="mmartinovic_coeditor/sales/order/view/coeditor/qty.phtml"/>
+            </block>
+        </reference>
+    </adminhtml_coeditor_ajax_index>
+
+    <!-- Handle for serving ajax response -->
+    <adminhtml_coeditor_ajax_update>
+        <block type="core/text_list" name="root" output="toHtml"/>
+    </adminhtml_coeditor_ajax_update>
+
+    <!-- Sales order view handle where we add button -->
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addJs">
+                <script>mmartinovic/adminhtml/sales/order/view/coeditor.js</script>
+            </action>
+
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+
+            <action method="addCss">
+                <name>lib/prototype/windows/themes/magento.css</name>
+            </action>
+
+        </reference>
+
+        <!-- Add button for editing custom options to order view screen -->
+        <reference name="order_item_extra_info">
+            <block type="mmartinovic_coeditor/adminhtml_sales_order_view_coeditor" name="mmartinovic_coeditor.edit" template="mmartinovic_coeditor/sales/order/view/coeditor.phtml"/>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>
