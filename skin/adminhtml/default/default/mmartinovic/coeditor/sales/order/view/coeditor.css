@@ -1,0 +1,11 @@
+body.adminhtml-coeditor-ajax-index {
+    background: none;
+}
+
+body.adminhtml-coeditor-ajax-index .wrapper-popup {
+    min-width: 0;
+}
+body.adminhtml-coeditor-ajax-index #anchor-content.middle {
+    min-height: 0;
+    background: none;
+}

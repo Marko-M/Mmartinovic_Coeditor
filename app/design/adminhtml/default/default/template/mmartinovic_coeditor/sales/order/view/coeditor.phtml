@@ -1,0 +1,24 @@
+<?php
+$_item = $this->getItem();
+/* @var $_item Mage_Sales_Model_Order_Item */
+
+$_options = $this->getOrderItemOptions();
+?>
+
+<?php if(!empty($_options) && !$this->optionsAffectPrice()): ?>
+<tr class="border">
+    <td class="a-right" colspan="10">
+        <button
+            onclick="coeditor.openPopup(
+                        '<?php echo $this->getUrl('adminhtml/coeditor_ajax/index', array('order_item_id' => $_item->getId())); ?>',
+                        '<?php echo $this->__('Edit Custom Options'); ?>',
+                        '<?php echo $_item->getId(); ?>'
+                    )"
+            class="scalable"
+            type="button"
+            title="<?php echo $this->__('Edit Custom Options'); ?>">
+            <span><?php echo $this->__('Edit Custom Options'); ?></span>
+        </button>
+    </td>
+</tr>
+<?php endif; ?>

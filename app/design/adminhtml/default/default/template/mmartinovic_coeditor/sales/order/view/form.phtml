@@ -1,0 +1,28 @@
+<?php
+$_orderItem = $this->getOrderItem();
+/* @var $_orderItem Mage_Sales_Model_Order_Item */
+?>
+
+<form
+    action="<?php echo $this->getUrl(
+            'adminhtml/coeditor_ajax/update',
+            array('order_item_id' => $_orderItem->getId())
+        ); ?>"
+    method="post"
+    id="sales-order-view-coeditor-form"
+    enctype="multipart/form-data"
+    onsubmit="coeditor.submitForm(<?php echo $_orderItem->getId(); ?>); return false;">
+    <div class="entry-edit">
+        <?php echo $this->getChildHtml('sales.order.view.coeditor.options') ?>
+        <?php echo $this->getChildHtml('sales.order.view.coeditor.qty') ?>
+        <div class="buttons-set a-right">
+            <button type="button" class="scalable" id="sales-order-view-coeditor-form-cancel" onClick="coeditor.popupClosePopup(<?php echo $_orderItem->getId(); ?>);"><span><?php echo Mage::helper('catalog')->__('Cancel') ?></span></button>
+            <button type="submit" class="scalable" id="sales-order-view-coeditor-form-confirm"><span><?php echo Mage::helper('catalog')->__('OK') ?></span></button>
+        </div>
+    </div>
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey() ?>" />
+</form>
+
+<script type="text/javascript">
+    var salesOrderViewCoeditor = new varienForm('sales-order-view-coeditor-form');
+</script>

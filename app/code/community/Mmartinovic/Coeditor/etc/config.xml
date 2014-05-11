@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Mmartinovic_Coeditor>
+            <version>0.1.0</version>
+        </Mmartinovic_Coeditor>
+    </modules>
+
+    <global>
+        <models>
+            <mmartinovic_coeditor>
+                <class>Mmartinovic_Coeditor_Model</class>
+            </mmartinovic_coeditor>
+        </models>
+        <blocks>
+            <mmartinovic_coeditor>
+                <class>Mmartinovic_Coeditor_Block</class>
+            </mmartinovic_coeditor>
+        </blocks>
+        <helpers>
+            <mmartinovic_coeditor>
+                <class>Mmartinovic_Coeditor_Helper</class>
+            </mmartinovic_coeditor>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mmartinovic_Coeditor before="Mage_Adminhtml">Mmartinovic_Coeditor_Adminhtml</Mmartinovic_Coeditor>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <mmartinovic_coeditor>
+                    <file>mmartinovic_coeditor.xml</file>
+                </mmartinovic_coeditor>
+            </updates>
+        </layout>
+    </adminhtml>
+
+</config>
